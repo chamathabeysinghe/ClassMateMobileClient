@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+        <ion-card *ngFor="let classRoom of classes">
+          <ion-card-content>
+            <ion-card-title>
+              {{classRoom.name}}
+            </ion-card-title>
+            <p>
+              Location : {{classRoom.location}}<br>
+              Start Time : {{classRoom.starttime}}<br>
+              End Time : {{classRoom.endTime}}<br>
+            </p>
+            <button ion-button color="secondary" (click)="viewClass(classRoom._id)">View Class</button>
+          </ion-card-content>
+        </ion-card>
+</ion-content>
+    

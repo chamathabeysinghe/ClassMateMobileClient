@@ -5,14 +5,10 @@ import 'rxjs/Rx';
 @Injectable()
 export class UserService{
   http:any;
-  baseUrl:string;
-
-  
+  baseUrl="http://localhost:3000/api";
 
 constructor(http:Http){
     this.http=http;
-    this.baseUrl='https://www.reddit.com/r';
-
   }
 
   getPosts(category,limit){
@@ -22,12 +18,13 @@ constructor(http:Http){
 
  
 
-  logUser(email,password){
-      console.log("In the log user fuction");
-      var headers=new Headers();
-      var user={emial:email,password:password};
-      headers.append('Content-Type','application/json');
-      return this.http.post('http://localhost:3000/api/authenticate',JSON.stringify(user),{headers:headers}).map(res=>res.json());
+  logUser(username,password){
+    const contentHeaders = new Headers();
+    contentHeaders.append('Accept', 'application/json');
+    contentHeaders.append('Content-Type', 'application/json');
+
+    let body = JSON.stringify({ email:username, password:password });
+    return this.http.post(this.baseUrl+'/authenticate', body, { headers: contentHeaders }).map(res=>res.json());
 
   }
 }

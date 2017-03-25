@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+        <button ion-button full (click)="viewAddFeedbackForm()">Add Feedback</button>
+        <button ion-button color="danger" full (click)="viewAddQuestionForm()">Add Question</button>
+
+        <ion-card *ngFor="let lecture of lectures">
+          <ion-card-content>
+            <ion-card-title>
+              {{lecture.lectureTitle}}
+            </ion-card-title>
+            <p>
+              {{lecture.lectureSummary}}
+              
+            </p>
+            <button ion-button color="secondary" (click)="viewClass(classRoom._id)">View Material</button>
+            <button ion-button color="secondary" (click)="viewClass(classRoom._id)">View Questions</button>
+
+          </ion-card-content>
+        </ion-card>
+</ion-content>
+    
