@@ -6,8 +6,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
-import { DashboardPage } from "../pages/dashboard/dashboard";
 import { ClassRoomPage } from "../pages/classroom/classroom";
+import { DashboardPage } from "../pages/dashboard/dashboard";
 import { AddFeedbackPage } from "../pages/add-feedback/add-feedback";
 
 @NgModule({
@@ -18,8 +18,8 @@ import { AddFeedbackPage } from "../pages/add-feedback/add-feedback";
     HomePage,
     LoginPage,
     TabsPage,
-    DashboardPage,
     ClassRoomPage,
+    DashboardPage,
     AddFeedbackPage
   ],
   imports: [
@@ -32,8 +32,8 @@ import { AddFeedbackPage } from "../pages/add-feedback/add-feedback";
     ContactPage,
     HomePage,
     LoginPage,
-    DashboardPage,
     ClassRoomPage,
+    DashboardPage,
     AddFeedbackPage,
     TabsPage
   ],

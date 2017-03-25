@@ -1,29 +1,41 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ClassRoom } from "../../models/Class";
 import { ClassService } from "../../app/services/class.service";
 import { Lecture } from "../../models/Lecture";
+import { DashboardPage } from "../dashboard/dashboard";
 
 @Component({
-  selector: 'page-classroom',
-  templateUrl: 'classroom.html'
+  selector: 'page-add-feedback',
+  templateUrl: 'add-feedback.html'
 })
 export class AddFeedbackPage {
-  lectures:Lecture[];
-  currentClass=new ClassRoom();
-  currentClassID:any;
-  constructor(public navCtrl: NavController,public classService:ClassService,public params:NavParams) {
-        this.currentClassID=params.get('classId');
+  lectureId:any;
+  submitFeedback={details:"",semantic:"",_lecture:""};
 
-        this.classService.getLectures(this.currentClassID).subscribe(lectures=>{
-          this.lectures=lectures;
-          console.log(this.lectures);
-        });
-
-        
+  constructor(public navCtrl: NavController,public classService:ClassService,public params:NavParams,public alertCtrl:AlertController) {
+        this.submitFeedback._lecture=params.get('lectureId');        
   }
 
+  
+  saveFeedback(){
+    console.log(this.submitFeedback);
+    this.classService.createFeedback(this.submitFeedback).subscribe(data=>{
+      if(data.success){
+        this.navCtrl.push(DashboardPage);
+      }
+      else{
 
+        let alert = this.alertCtrl.create({
+          title: 'Error!',
+          subTitle: data.msg,
+          buttons: ['OK']
+        });
+        alert.present();
+        
+      }
+    });
+  }
 
 }

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Add Feedback
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Details</ion-label>
+      <ion-input [(ngModel)]="submitFeedback.details" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list radio-group  [(ngModel)]="submitFeedback.semantic">
+    <ion-list-header>
+      Semantic
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Good</ion-label>
+      <ion-radio  value="Good"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Neutral</ion-label>
+      <ion-radio value="Neutral"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bad</ion-label>
+      <ion-radio value="bad"></ion-radio>
+    </ion-item>
+</ion-list>
+<button ion-button block full (click)="saveFeedback()">Button</button>
+</ion-content>
+    

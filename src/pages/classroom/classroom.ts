@@ -24,10 +24,9 @@ export class ClassRoomPage {
           for(var i=0;i<this.lectures.length;i++){
             this.lastLectureID=lectures[i]._id;
           }
-        });
-
-        
+        });        
   }
+
 
   viewClass(classId){
     console.log("This is classID   "+classId);
@@ -35,7 +34,7 @@ export class ClassRoomPage {
 
   viewAddFeedbackForm(){
     this.navCtrl.push(AddFeedbackPage,{
-      lectureId:0
+      lectureId:this.lastLectureID
     })
   }
 
