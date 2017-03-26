@@ -36,6 +36,18 @@ export class ClassService{
     return this.http.get(this.baseUrl + '/api/get-lectures/' + id,{headers:headers}).map(res=>res.json());
   }
 
+  
+  getQuestions(id){
+    const authenticatedContentHeaders = new Headers();
+    authenticatedContentHeaders.append('Accept', 'application/json');
+    authenticatedContentHeaders.append('Content-Type', 'application/json');
+    var token=localStorage.getItem('id_token');
+    authenticatedContentHeaders.append('Authorization',token);
+    
+    let headers = authenticatedContentHeaders;
+    return this.http.get(this.baseUrl + '/api/question/get-questions/' + id,{headers:headers}).map(res=>res.json());
+  }
+
   createFeedback(feedback){
     const authenticatedContentHeaders = new Headers();
     authenticatedContentHeaders.append('Accept', 'application/json');
@@ -47,4 +59,14 @@ export class ClassService{
     return this.http.post(this.baseUrl+'/api/feedback/create-feedback',JSON.stringify(feedback),{headers:header}).map(res=>res.json());
   }
   
+  createQuestion(question){
+    const authenticatedContentHeaders = new Headers();
+    authenticatedContentHeaders.append('Accept', 'application/json');
+    authenticatedContentHeaders.append('Content-Type', 'application/json');
+    var token=localStorage.getItem('id_token');
+    authenticatedContentHeaders.append('Authorization',token);
+
+    let header=authenticatedContentHeaders;
+    return this.http.post(this.baseUrl+'/api/question/create-question',JSON.stringify(question),{headers:header}).map(res=>res.json());
+  }
 }

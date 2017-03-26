@@ -9,6 +9,8 @@ import { LoginPage } from "../pages/login/login";
 import { ClassRoomPage } from "../pages/classroom/classroom";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { AddFeedbackPage } from "../pages/add-feedback/add-feedback";
+import { AddQuestionPage } from "../pages/add-question/add-question";
+import { ViewQuestionsPage } from "../pages/view-questions/view-question";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AddFeedbackPage } from "../pages/add-feedback/add-feedback";
     TabsPage,
     ClassRoomPage,
     DashboardPage,
-    AddFeedbackPage
+    AddFeedbackPage,
+    AddQuestionPage,
+    ViewQuestionsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +39,9 @@ import { AddFeedbackPage } from "../pages/add-feedback/add-feedback";
     ClassRoomPage,
     DashboardPage,
     AddFeedbackPage,
-    TabsPage
+    TabsPage,
+    AddQuestionPage,
+    ViewQuestionsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

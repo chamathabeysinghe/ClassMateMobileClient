@@ -5,6 +5,8 @@ import { ClassRoom } from "../../models/Class";
 import { ClassService } from "../../app/services/class.service";
 import { Lecture } from "../../models/Lecture";
 import { AddFeedbackPage } from "../add-feedback/add-feedback";
+import { AddQuestionPage } from "../add-question/add-question";
+import { ViewQuestionsPage } from "../view-questions/view-question";
 
 @Component({
   selector: 'page-classroom',
@@ -23,6 +25,7 @@ export class ClassRoomPage {
           console.log(this.lectures);
           for(var i=0;i<this.lectures.length;i++){
             this.lastLectureID=lectures[i]._id;
+            console.log(lectures[i]._id);
           }
         });        
   }
@@ -39,7 +42,20 @@ export class ClassRoomPage {
   }
 
   viewAddQuestionForm(){
+    this.navCtrl.push(AddQuestionPage,{
+      lectureId:this.lastLectureID
+    })
+  }
 
+  viewQuestionPage(lectureId){
+    console.log(lectureId);
+    this.navCtrl.push(ViewQuestionsPage,{
+      lectureId:lectureId
+    })
+  }
+
+  viewMaterialPage(lectureId){
+    console.log(lectureId);
   }
 
 }

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Questions
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-card *ngFor="let question of questions">
+          <ion-card-content>
+            <ion-card-title>
+              {{question.title}}
+            </ion-card-title>
+            <p>
+              {{question.details}}
+              
+            </p>
+            <p *ngIf="question.answers.length>0">
+              {{question.answers[0].details}}
+            </p>
+            
+            <p *ngIf="question.answers.length==0">
+              No Answer Yet
+            </p>
+            
+          </ion-card-content>
+        </ion-card>        
+</ion-content>
+    

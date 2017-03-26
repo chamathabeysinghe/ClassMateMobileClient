@@ -12,28 +12,26 @@ import { DashboardPage } from "../dashboard/dashboard";
 })
 export class AddQuestionPage {
   lectureId:any;
-  submitFeedback={details:"",semantic:"",_lecture:""};
+  submitQuestion={title:"",details:"",link:"",_lecture:""};
 
   constructor(public navCtrl: NavController,public classService:ClassService,public params:NavParams,public alertCtrl:AlertController) {
-        this.submitFeedback._lecture=params.get('lectureId');        
+        this.submitQuestion._lecture=params.get('lectureId');        
   }
 
   
-  saveFeedback(){
-    console.log(this.submitFeedback);
-    this.classService.createFeedback(this.submitFeedback).subscribe(data=>{
+  saveQuestion(){
+    console.log(this.submitQuestion);
+    this.classService.createQuestion(this.submitQuestion).subscribe(data=>{
       if(data.success){
         this.navCtrl.push(DashboardPage);
       }
       else{
-
         let alert = this.alertCtrl.create({
           title: 'Error!',
           subTitle: data.msg,
           buttons: ['OK']
         });
-        alert.present();
-        
+        alert.present(); 
       }
     });
   }
