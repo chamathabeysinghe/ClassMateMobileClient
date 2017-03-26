@@ -11,6 +11,7 @@ import { DashboardPage } from "../pages/dashboard/dashboard";
 import { AddFeedbackPage } from "../pages/add-feedback/add-feedback";
 import { AddQuestionPage } from "../pages/add-question/add-question";
 import { ViewQuestionsPage } from "../pages/view-questions/view-question";
+import { ViewMaterialPage } from "../pages/view-materials/view-material";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ViewQuestionsPage } from "../pages/view-questions/view-question";
     DashboardPage,
     AddFeedbackPage,
     AddQuestionPage,
-    ViewQuestionsPage
+    ViewQuestionsPage,
+    ViewMaterialPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -41,7 +43,8 @@ import { ViewQuestionsPage } from "../pages/view-questions/view-question";
     AddFeedbackPage,
     TabsPage,
     AddQuestionPage,
-    ViewQuestionsPage
+    ViewQuestionsPage,
+    ViewMaterialPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

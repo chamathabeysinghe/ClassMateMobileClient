@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Materials
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-card *ngFor="let material of materials">
+          <ion-card-content>
+            <ion-card-title>
+              {{material.type}}
+            </ion-card-title>
+            <p>
+              {{material.details}}
+              
+            </p>
+            
+            <button ion-button color="secondary" (click)="downloadMaterial(materila._id)">Download</button>
+
+          </ion-card-content>
+        </ion-card>        
+</ion-content>
+    

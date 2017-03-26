@@ -7,6 +7,7 @@ import { Lecture } from "../../models/Lecture";
 import { AddFeedbackPage } from "../add-feedback/add-feedback";
 import { AddQuestionPage } from "../add-question/add-question";
 import { ViewQuestionsPage } from "../view-questions/view-question";
+import { ViewMaterialPage } from "../view-materials/view-material";
 
 @Component({
   selector: 'page-classroom',
@@ -56,6 +57,9 @@ export class ClassRoomPage {
 
   viewMaterialPage(lectureId){
     console.log(lectureId);
+    this.navCtrl.push(ViewMaterialPage,{
+      lectureId:lectureId
+    });
   }
 
 }

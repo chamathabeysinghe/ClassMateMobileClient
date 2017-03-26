@@ -35,7 +35,7 @@ export class ClassService{
     let headers = authenticatedContentHeaders;
     return this.http.get(this.baseUrl + '/api/get-lectures/' + id,{headers:headers}).map(res=>res.json());
   }
-
+  
   
   getQuestions(id){
     const authenticatedContentHeaders = new Headers();
@@ -46,6 +46,17 @@ export class ClassService{
     
     let headers = authenticatedContentHeaders;
     return this.http.get(this.baseUrl + '/api/question/get-questions/' + id,{headers:headers}).map(res=>res.json());
+  }
+
+  getMaterails(id){
+    const authenticatedContentHeaders = new Headers();
+    authenticatedContentHeaders.append('Accept', 'application/json');
+    authenticatedContentHeaders.append('Content-Type', 'application/json');
+    var token=localStorage.getItem('id_token');
+    authenticatedContentHeaders.append('Authorization',token);
+    
+    let headers = authenticatedContentHeaders;
+    return this.http.get(this.baseUrl + '/api/material/get-materials/' + id,{headers:headers}).map(res=>res.json());
   }
 
   createFeedback(feedback){

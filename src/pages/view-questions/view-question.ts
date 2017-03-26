@@ -13,8 +13,10 @@ import { Question } from "../../models/Question";
   templateUrl: 'view-question.html'
 })
 export class ViewQuestionsPage {
+
   questions:Question[];
   currentLectureID:any;
+  
   constructor(public navCtrl: NavController,public classService:ClassService,public params:NavParams) {
         this.currentLectureID=params.get('lectureId');
         this.classService.getQuestions(this.currentLectureID).subscribe(questions=>{
